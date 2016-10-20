@@ -9,7 +9,7 @@
     <li><a href="#instructor-login-modal" class="modal-trigger">Instructor</a></li>
   </ul>
   <nav class="teal darken-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">C{}DE</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo orange-text">C{ }DE</a>
       <ul class="right hide-on-med-and-down">
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -94,7 +94,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h2 class="center teal-text"><i class="material-icons">flash_on</i></h2>
             <h5 class="center">Support for multiple languages</h5>
 
             <p class="light">Choose a programming language from a plethora of options, enter the source code and you are ready to go!</p>
@@ -104,7 +104,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h2 class="center teal-text"><i class="material-icons">group</i></h2>
             <h5 class="center">User Experience Focused</h5>
 
             <p class="light">By utilizing elements and principles of Material Design, we were able to create a system that incorporates components and animations that provide more feedback to users and it is lightening fast!</p>
@@ -113,7 +113,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">code</i></h2>
+            <h2 class="center teal-text"><i class="material-icons">code</i></h2>
             <h5 class="center">Eat, Sleep, Code &amp; Repeat </h5>
             <p class="light">We provide an easy to work with user interface for a greater user experience. We are also always open to feedback and can answer any questions a user may have about our Online Judge.</p>
           </div>
