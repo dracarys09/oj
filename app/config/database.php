@@ -44,6 +44,9 @@ return array(
 	|
 	*/
 
+// 			'unix_socket' => '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock'
+
+
 	'connections' => array(
 
 		'sqlite' => array(
@@ -54,7 +57,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '127.0.0.1',
 			'database'  => 'oj',
 			'username'  => 'root',
 			'password'  => '',
