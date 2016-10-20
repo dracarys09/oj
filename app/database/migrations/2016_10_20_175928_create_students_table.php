@@ -16,7 +16,7 @@ class CreateStudentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->string('roll_no',20)->unique();
+			$table->string('roll',20)->unique();
 			$table->timestamps();
 		});
 	}

@@ -16,7 +16,7 @@ class CreateInstructorsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->string('emp_no',20)->unique();
+			$table->string('roll',20)->unique();
 			$table->timestamps();
 		});
 	}

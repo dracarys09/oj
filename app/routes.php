@@ -11,7 +11,23 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home');
-});
+Route::get('/', array(
+
+	'as'	=>	'index',
+	'uses'=>	'PagesController@index'
+
+));
+
+Route::post('/register',array(
+
+	'as'	=>	'register',
+	'uses'=>	'UserController@store'
+
+));
+
+Route::post('/login',array(
+
+	'as'	=>	'login',
+	'uses'=>	'UserController@login'
+
+));

@@ -22,15 +22,15 @@
       <div class="modal-content">
         <h4>Student Login</h4>
         <div class="row">
-          <form class="col s6">
+          <form class="col s6" method = "POST" action = "{{ URL::route('login') }}">
             <div class="row">
               <div class="input-field col s12">
                 <span>Email:</span>
-                <input id="email" type="email" class="validate" placeholder="someone@example.com" required>
+                <input id="email" name="email" type="email" class="validate" placeholder="someone@example.com" required>
               </div>
               <div class="input-field col s12">
                 <span>Password:</span>
-                <input id="pass" type="password" placeholder="Your password" required>
+                <input id="pass" name="password" type="password" placeholder="Your password" required>
               </div>
               <div class="input-field col s12">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
@@ -48,15 +48,15 @@
       <div class="modal-content">
         <h4>Instructor Login</h4>
         <div class="row">
-          <form class="col s6">
+          <form class="col s6" method = "POST" action = "{{ URL::route('login') }}">
             <div class="row">
               <div class="input-field col s12">
                 <span>Email:</span>
-                <input id="email" type="email" class="validate" placeholder="someone@example.com" required>
+                <input id="email" name="email" type="email" class="validate" placeholder="someone@example.com" required>
               </div>
               <div class="input-field col s12">
                 <span>Password:</span>
-                <input id="pass" type="password" placeholder="Your password" required>
+                <input id="pass" name="password" type="password" placeholder="Your password" required>
               </div>
               <div class="input-field col s12">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
@@ -78,11 +78,81 @@
         <h5 class="header col s12 light">A modern responsive Online Judge based on Material Design</h5>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light teal">Register</a>
+        <a href="#register-modal" id="download-button" class="btn-large waves-effect waves-light teal modal-trigger">Register</a>
       </div>
       <br><br>
 
+      <!-- Register Modal Structure -->
+      <div id="register-modal" class="modal bottom-sheet register-modal">
+        <div class="modal-content">
+          <div class="row">
+            <form class="col s12" method="POST" action="{{ URL::route('register') }}">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="name" name="name" type="text" required>
+                  <label for="name" style="color:#000;">Name</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input id="email" name="email" type="email" required>
+                  <label for="email" style="color:#000;">Email</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="password" name="password" type="password" required>
+                  <label for="password" style="color:#000;">Password</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input id="password_again" name="password_again" type="password" required>
+                  <label for="password_again" style="color:#000;">Password Again</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s4">
+                  <select name="dept" required>
+                      <option value="" disabled="disabled" selected="selected">Department</option>
+                      <option value="CSE">CSE</option>
+                      <option value="ME">ME</option>
+                      <option value="EE">EE</option>
+                      <option value="CE">CE</option>
+                  </select>
+                </div>
+
+                <div class="input-field col s4">
+                  <input id="roll" name="roll" type="text" required>
+                  <label for="roll" style="color:#000;">Rollno/EmpId</label>
+                </div>
+
+                <div class="input-field col s4">
+                  <select name="type" required>
+                      <option value="" disabled="disabled" selected="selected">Type</option>
+                      <option value="0">Instructor</option>
+                      <option value="1">Student</option>
+                  </select>
+                </div>
+
+
+              </div>
+
+              <div class="row">
+                <button class="col s4 push-s4 btn waves-effect waves-light" type="submit" name="register">Register
+                  <i class="material-icons left">fast_rewind</i>
+                  <i class="material-icons right">fast_forward</i>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div> <!-- End Modal -->
+
     </div>
+
   </div>
 
 
@@ -150,6 +220,8 @@
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();
       //Materialize.updateTextFields();
+      $('select').material_select();
+
     });
 
     new WOW().init();

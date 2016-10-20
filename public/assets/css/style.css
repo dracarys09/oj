@@ -10,3 +10,8 @@
 .login-modal{
   color:#333;
 }
+
+.register-modal{
+  width: 100% !important ;
+  max-height: 100% !important
+}
