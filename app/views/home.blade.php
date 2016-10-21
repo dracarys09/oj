@@ -70,10 +70,28 @@
   </nav>
 
 
+  @if(Session::has('flash_message'))
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Error</span>
+              <div class = "row">
+                <div class = "alert alert-success alert-dismissible" role = "alert"><strong>{{ Session::get('flash_message') }}</strong></div>
+              </div>
+            </div>
+            <div class="card-action">
+              <a class="dismiss" onclick="dismiss()">Dismiss</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  @endif
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h2 class="header center teal-text">Love Beautiful Code? We do too.</h2>
+      <h2 class="header center teal-text wow fadeIn">Love Beautiful Code? We do too.</h2>
       <div class="row center">
         <h5 class="header col s12 light">A modern responsive Online Judge based on Material Design</h5>
       </div>
@@ -160,7 +178,7 @@
     <div class="section">
 
       <!--   Icon Section   -->
-      <div class="row wow fadeIn">
+      <div class="row wow bounceInUp">
 
         <div class="col s12 m4">
           <div class="icon-block">
@@ -221,6 +239,10 @@
       $('.modal-trigger').leanModal();
       //Materialize.updateTextFields();
       $('select').material_select();
+
+      dismiss = function() {
+        $('.dismiss').parent().parent().parent().parent().css("display","none");
+      }
 
     });
 

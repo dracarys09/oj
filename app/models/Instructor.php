@@ -56,6 +56,11 @@ class Instructor extends Eloquent {
 		return false;
 	}
 
+	public function get_instructor_by_user_id($user_id)
+	{
+		$instructor = Instructor::where('user_id','=',$user_id)->first();
+		return $instructor;
+	}
 
 
 }

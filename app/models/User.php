@@ -42,9 +42,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 					'email'					=>	'required|unique:users',
 					'password'			=>	'required',
 					'password_again'=>	'required|same:password',
-					'department'		=>	'required',
-					'type'					=>	'required',
-					'roll'					=>	'required'
+					'dept'					=>	'required',
+					'type'					=>	'required'
 	];
 
 
@@ -77,7 +76,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$user = new User;
 
 		$user->name 				=	$data['name'];
-		$user->department 	=	$data['department'];
+		$user->dept 				=	$data['dept'];
 		$user->email 				=	$data['email'];
 		$user->type 				=	$data['type'];
 		$user->password 		=	Hash::make($data['password']);

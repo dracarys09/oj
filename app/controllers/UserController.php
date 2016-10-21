@@ -2,15 +2,6 @@
 
 class UserController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
 
 	public function login()
 	{
@@ -22,7 +13,20 @@ class UserController extends \BaseController {
 
 		if($attempt)
 		{
-			dd("Login Successful!");
+			//dd("Login Successful!");
+			$type = Auth::user()->type;
+
+			//Instructor
+			if($type == "0")
+			{
+				//dd("Inside User Controller and Instructor type");
+				return Redirect::route('instructor_dashboard');
+			}
+			//Student
+			else
+			{
+				return Redirect::route('student_dashboard');
+			}
 		}
 		else
 		{
@@ -31,6 +35,11 @@ class UserController extends \BaseController {
 
 	}
 
+	public function logout()
+	{
+		Auth::logout();
+		return Redirect::to('/');
+	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -44,15 +53,17 @@ class UserController extends \BaseController {
 		{
 			if(User::store(Input::all()))
 			{
-				dd("success");
+				/* Redirecting to home page if registration is successful */
+				return Redirect::to('/')->with('flash_message',"Registration Successful...You can now login!");
 			}
 			else
 			{
-				dd("fail");
+				dd("Server problem... Please try again later!");
 			}
 		}
 		else
 		{
+			//dd(User::$errors);
 			return Redirect::back()->withInput()->with('flash_message',User::$errors." Please try again...");
 		}
 	}

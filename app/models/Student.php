@@ -57,4 +57,12 @@ class Student extends Eloquent {
 			return false;
 		}
 
+		public function get_student_by_user_id($user_id)
+		{
+			$student = Student::where('user_id','=',$user_id)->first();
+			return $student;
+		}
+
+
+
 }

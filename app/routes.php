@@ -31,3 +31,57 @@ Route::post('/login',array(
 	'uses'=>	'UserController@login'
 
 ));
+
+Route::get('/logout',array(
+
+	'as'	=>	'logout',
+	'uses'=>	'UserController@logout'
+
+));
+
+Route::get('/dashboard',array(
+
+	'as'	=>	'instructor_dashboard',
+	'uses'=>	'PagesController@instructor_dashboard'
+
+))->before('auth');
+
+Route::get('/dashboard',array(
+
+	'as'	=>	'student_dashboard',
+	'uses'=>	'PagesController@student_dashboard'
+
+))->before('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
