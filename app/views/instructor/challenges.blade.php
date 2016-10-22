@@ -76,8 +76,8 @@
               </div>
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+              <a class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+              <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
           </div>
         </div>
@@ -103,8 +103,8 @@
               </div>
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+              <a class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+              <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
           </div>
         </div>
