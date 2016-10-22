@@ -57,3 +57,10 @@
 .add-challenge-button{
   bottom: 1;
 }
+
+#add-challenge-modal {
+  top: auto !important;
+  right: auto !important;
+  bottom: 10%;
+  left:35%;
+}

@@ -67,7 +67,12 @@ Route::get('/dashboard/challenges',array(
 
 ))->before('auth');
 
+Route::post('/dashboard/challenges',array(
 
+	'as'	=>	'create_challenge',
+	'uses'=>	'ChallengeController@store'
+
+))->before('auth');
 
 
 

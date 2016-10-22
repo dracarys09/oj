@@ -46,7 +46,9 @@ class PagesController extends \BaseController {
 	{
 		$user = Auth::user();
 		$instructor = Instructor::get_instructor_by_user_id($user-id);
-		return View::make('instructor.challenges')->with('user',$user)->with('instructor',$instructor);
+		$future_contests = Challenge::get_future_challenges(Auth::user()->id);
+		$past_contests = Challenge::get_past_challenges(Auth::user()->id);
+		return View::make('instructor.challenges')->with('user',$user)->with('instructor',$instructor)->with('future_contests',$future_contests)->with('past_contests',$past_contests);
 	}
 
 }
