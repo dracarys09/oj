@@ -39,21 +39,33 @@ Route::get('/logout',array(
 
 ));
 
-Route::get('/dashboard',array(
+Route::get('/dashboard/user',array(
+
+	'as'	=>	'dashboard',
+	'uses'=>	'PagesController@dashboard'
+
+))->before('auth');
+
+Route::get('/dashboard/instructor',array(
 
 	'as'	=>	'instructor_dashboard',
 	'uses'=>	'PagesController@instructor_dashboard'
 
 ))->before('auth');
 
-Route::get('/dashboard',array(
+Route::get('/dashboard/student',array(
 
 	'as'	=>	'student_dashboard',
 	'uses'=>	'PagesController@student_dashboard'
 
 ))->before('auth');
 
+Route::get('/dashboard/challenges',array(
 
+	'as'	=>	'challenges',
+	'uses'=>	'PagesController@challenges'
+
+))->before('auth');
 
 
 

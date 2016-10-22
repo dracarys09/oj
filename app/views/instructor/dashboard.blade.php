@@ -1,1 +1,6 @@
-{{ dd($user) }}
+@extends('layouts.master')
+
+@section('content')
+
+
+@stop

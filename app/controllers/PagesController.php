@@ -12,6 +12,20 @@ class PagesController extends \BaseController {
 		return View::make('home');
 	}
 
+	public function dashboard()
+	{
+		//instructor
+		if(Auth::user()->type == "0")
+		{
+			return Redirect::route('instructor_dashboard');
+		}
+		//student
+		else
+		{
+			return Redirect::route('student_dashboard');
+		}
+	}
+
 	public function student_dashboard()
 	{
 		$user = Auth::user();
@@ -25,8 +39,14 @@ class PagesController extends \BaseController {
 		//dd("instructor_dashboard");
 		$user = Auth::user();
 		$instructor = Instructor::get_instructor_by_user_id($user->id);
-		//dd($user);
 		return View::make('instructor.dashboard')->with('user',$user)->with('instructor',$instructor);
+	}
+
+	public function challenges()
+	{
+		$user = Auth::user();
+		$instructor = Instructor::get_instructor_by_user_id($user-id);
+		return View::make('instructor.challenges')->with('user',$user)->with('instructor',$instructor);
 	}
 
 }
