@@ -72,7 +72,8 @@ class ChallengeController extends \BaseController {
 	{
 		$contest = Challenge::get_challenge_by_name($contest_name);
 		$user = Auth::user();
-		return View::make('instructor.add_problems')->with('contest',$contest)->with('user',$user);
+		$flag = "edit";
+		return View::make('instructor.add_problems')->with('contest',$contest)->with('user',$user)->with('flag',$flag);
 	}
 
 

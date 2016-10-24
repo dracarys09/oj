@@ -26,6 +26,7 @@
     <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-2.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/materialize.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ URL::asset('assets/js/init.js') }}"></script>
 
 
@@ -61,11 +62,13 @@
           <nav class="dashboard-nav white">
             <div class="nav-wrapper">
               @if(Route::currentRouteName() == "instructor_dashboard")
-                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Home</h5>
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard</h5>
               @elseif(Route::currentRouteName() == "challenges")
-                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Challenges</h5>
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges</h5>
               @elseif(Route::currentRouteName() == "settings")
-                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Settings</h5>
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Settings</h5>
+              @elif(isset($flag))
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges > {{ $flag }}</h5>
               @endif
             </div>
           </nav>

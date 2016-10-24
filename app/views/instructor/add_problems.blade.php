@@ -1,11 +1,64 @@
-@extends('layouts.master')
+@extends('layouts.master',['flag' => $flag])
 
 @section('content')
 
 <div class="container" style="margin-left:25%;">
-  <div class="fixed-action-btn">
-    <a class="modal-trigger btn-floating btn-large waves-effect waves-light blue" href="#add-problem-modal"><i class="material-icons">add</i></a>
-  </div>
+
+  <ul class="collapsible problems-accordian" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header btn-large waves-effect waves-light teal"><i class="material-icons">add</i></div>
+      <div class="collapsible-body">
+
+        <div class="row">
+          <form class="col s12" method="POST" action="{{ route('add_problem', array('contest_id' => $contest->id)) }}">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" name="name" type="text" style="margin-left:5%;" required>
+                <label for="name" style="color:#000; margin-left:5%;">Problem Title *</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <span style="margin-left:2.5%;">Problem Statement *</span>
+                <textarea id="description" name="description" class="ckeditor"></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="time-limit" name="time_limit" type="text" style="margin-left:5%;">
+                <label for="time-limit" style="color:#000; margin-left:5%;">Time Limit (seconds)</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="memory-limit" name="memory_limit" type="text" style="margin-left:5%;">
+                <label for="memory-limit" style="color:#000; margin-left:5%;">Memory Limit (MBs)</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 offset-s5">
+                <input class="btn" type="submit" name="submit" value="ADD">
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">code</i>Problem 1</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">code</i>Problem 2</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
 
   @if(Session::has('flash_message'))
       <div class="row">
@@ -25,39 +78,6 @@
   @endif
 
 
-  <!-- Add Problem Modal Structure -->
-  <div id="add-problem-modal" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12" method="POST" action="{{ URL::route('add_problem') }}">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="name" name="name" type="text" required>
-              <label for="name" style="color:#000;">Problem Title</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s6">
-              Start:
-              <input id="start" name="start" type="datetime-local" required>
-            </div>
-
-            <div class="input-field col s6">
-              End:
-              <input id="end" name="end" type="datetime-local" required>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn waves-effect waves-light" type="submit" name="create">Create
-        <i class="material-icons right">send</i>
-      </button>
-    </div>
-    </form>
-  </div><!-- End Create Challenge Modal -->
-
 </div>
 
 
@@ -72,6 +92,7 @@
     dismiss = function() {
       $('.dismiss').parent().parent().parent().parent().css("display","none");
     }
+
 
   });
 

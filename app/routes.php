@@ -74,7 +74,7 @@ Route::post('/dashboard/challenges',array(
 
 ))->before('auth');
 
-Route::get('/dashboard/challenges/add_problem',array(
+Route::post('/dashboard/challenges/add_problem/{contest_id}',array(
 
 	'as'	=>	'add_problem',
 	'uses'=>	'ProblemController@store'

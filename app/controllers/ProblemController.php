@@ -29,10 +29,28 @@ class ProblemController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($contest_id)
 	{
-		//
+		//Validate problem
+		if(Problem::isValid(Input::all()))
+		{
+			if(Problem::store(Input::all(), $contest_id))
+			{
+				$path = "/dashboard/challenges/$contest_id";
+				//dd($path);
+				return Redirect::to($path)->with('flash_message','Problem Added Successfully!');
+			}
+			else
+			{
+				dd("Server problem... Please try again later!");
+			}
+		}
+		else
+		{
+			return Redirect::back()->withInput()->with('flash_message',Problem::$errors." Please try again...");
+		}
 	}
+
 
 
 	/**
