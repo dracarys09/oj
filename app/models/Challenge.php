@@ -79,4 +79,16 @@ class Challenge extends Eloquent {
 		return $past_contests;
 	}
 
+	public static function get_challenge_by_name($challenge_name)
+	{
+		$contest = Challenge::where('name','=',$challenge_name)->first();
+		return $contest;
+	}
+
+	public static function get_challenge_by_id($challenge_id)
+	{
+		$contest = Challenge::find($challenge_id);
+		return $contest;
+	}
+
 }

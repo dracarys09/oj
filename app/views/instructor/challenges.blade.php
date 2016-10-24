@@ -58,6 +58,9 @@
     </form>
   </div><!-- End Create Challenge Modal -->
 
+  <div class="row contest-header">
+    <h5>Present &amp; Future Contests</h5>
+  </div>
   <!-- Future Contests -->
   <div class="row">
   @if(count($future_contests) > 0)
@@ -76,8 +79,12 @@
               </div>
             </div>
             <div class="card-action">
-              <a class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-              <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
+              <span style="display:none;">
+                {{ $url_edit = route('edit_problems', array('contest_name' => $future_contest->name)) }}
+                {{ $url_delete = route('delete_challenge', array('challenge_id' => $future_contest->id)) }}
+              </span>
+              <a href = "{{ $url_edit }}" class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+              <a href = "{{ $url_delete }}" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
           </div>
         </div>
@@ -85,6 +92,11 @@
   @endif
   </div>
 
+  <hr>
+
+  <div class="row contest-header">
+    <h5>Past Contests</h5>
+  </div>
   <!-- Past Contests -->
   <div class="row">
   @if(count($past_contests) > 0)
@@ -103,7 +115,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+              <a href = "#" class="disabled btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
               <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
           </div>

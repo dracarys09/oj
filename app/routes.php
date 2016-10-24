@@ -74,7 +74,26 @@ Route::post('/dashboard/challenges',array(
 
 ))->before('auth');
 
+Route::get('/dashboard/challenges/add_problem',array(
 
+	'as'	=>	'add_problem',
+	'uses'=>	'ProblemController@store'
+
+))->before('auth');
+
+Route::get('/dashboard/challenges/{contest_name}',array(
+
+	'as'	=>	'edit_problems',
+	'uses'=>	'ChallengeController@edit'
+
+))->before('auth');
+
+Route::get('/dashboard/delete/{challenge_id}',array(
+
+	'as'	=>	'delete_challenge',
+	'uses'=>	'ChallengeController@destroy'
+
+))->before('auth');
 
 
 

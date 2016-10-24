@@ -1,6 +1,6 @@
 <?php
 
-class ChallengeController extends \BaseController {
+class ProblemController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -31,22 +31,7 @@ class ChallengeController extends \BaseController {
 	 */
 	public function store()
 	{
-		//Validate Challenge
-		if(Challenge::isValid(Input::all()))
-		{
-			if(Challenge::store(Input::all(),Auth::user()->id))
-			{
-				return Redirect::route('challenges')->with('flash_message','Challenge Created Successfully...You can now add problems.');
-			}
-			else
-			{
-				dd("Server problem... Please try again later!");
-			}
-		}
-		else
-		{
-			return Redirect::back()->withInput()->with('flash_message',Challenge::$errors." Please try again...");
-		}
+		//
 	}
 
 
@@ -68,11 +53,9 @@ class ChallengeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($contest_name)
+	public function edit($id)
 	{
-		$contest = Challenge::get_challenge_by_name($contest_name);
-		$user = Auth::user();
-		return View::make('instructor.add_problems')->with('contest',$contest)->with('user',$user);
+		//
 	}
 
 
@@ -94,10 +77,9 @@ class ChallengeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($challenge_id)
+	public function destroy($id)
 	{
 		//
-		dd($challenge_id);
 	}
 
 
