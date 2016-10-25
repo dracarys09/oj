@@ -79,5 +79,13 @@ class Problem extends Eloquent {
 		return $problems;
 	}
 
+	public static function delete_problem($problem_id)
+	{
+		$problem = Problem::find($problem_id);
+		if($problem->delete())
+			return true;
+		return false;
+	}
+
 
 }

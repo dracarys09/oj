@@ -95,6 +95,13 @@ Route::get('/dashboard/delete/{challenge_id}',array(
 
 ))->before('auth');
 
+Route::get('dashboard/deleteproblem/{problem_id}',array(
+
+	'as'	=>	'delete_problem',
+	'uses'=>	'ProblemController@destroy'
+
+))->before('auth');
+
 
 
 

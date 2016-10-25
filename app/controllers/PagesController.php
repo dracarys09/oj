@@ -9,6 +9,11 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
+		if(Auth::check())
+		{
+			return Redirect::route('dashboard');
+		}
+
 		return View::make('home');
 	}
 
@@ -45,7 +50,7 @@ class PagesController extends \BaseController {
 	public function challenges()
 	{
 		$user = Auth::user();
-		$instructor = Instructor::get_instructor_by_user_id($user-id);
+		$instructor = Instructor::get_instructor_by_user_id($user->id);
 		$future_contests = Challenge::get_future_challenges(Auth::user()->id);
 		$past_contests = Challenge::get_past_challenges(Auth::user()->id);
 		return View::make('instructor.challenges')->with('user',$user)->with('instructor',$instructor)->with('future_contests',$future_contests)->with('past_contests',$past_contests);

@@ -36,9 +36,8 @@ class ProblemController extends \BaseController {
 		{
 			if(Problem::store(Input::all(), $contest_id))
 			{
-				$path = "/dashboard/challenges/$contest_id";
-				//dd($path);
-				return Redirect::to($path)->with('flash_message','Problem Added Successfully!');
+				$contest_name = Challenge::find($contest_id)->name;
+				return Redirect::route('edit_problems', ['contest_name' => $contest_name])->with('flash_message','Problem Added Successfully!');
 			}
 			else
 			{
@@ -95,9 +94,18 @@ class ProblemController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($problem_id)
 	{
-		//
+		$contest_id = Problem::find($problem_id)->challenge_id;
+		if(Problem::delete_problem($problem_id))
+		{	
+			$contest_name = Challenge::find($contest_id)->name;
+			return Redirect::route('edit_problems', ['contest_name' => $contest_name])->with('flash_message','Problem Deleted Successfully!');
+		}
+		else
+		{
+			dd("Server Problem... Please Try Again Later.");
+		}
 	}
 
 

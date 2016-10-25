@@ -53,7 +53,13 @@
 
     @foreach($problems as $problem)
       <li>
-        <div class="collapsible-header"><i class="material-icons">code</i>{{ $problem->title}} </div>
+        <div class="collapsible-header"><i class="material-icons">code</i>{{ $problem->title}}
+          <span style="float:right;">
+            <a href = "{{ route('delete_problem', array('problem_id' => $problem->id)) }}">
+              <i class="material-icons">delete</i>
+            </a>
+          </span>
+        </div>
         <div class="collapsible-body"><p>{{ $problem->description }}</p>
           <hr>
           <b>Time Limit : </b><span>{{ $problem->time_limit }} second</span>

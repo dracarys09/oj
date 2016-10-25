@@ -112,7 +112,7 @@
             </div>
             <div class="card-action">
               <a href = "#" class="disabled btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-              <a href = "{{ route('delete_challenge', array('challenge_id' => past_contest->id)) }}" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
+              <a href = "{{ route('delete_challenge', array('challenge_id' => $past_contest->id)) }}" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
           </div>
         </div>

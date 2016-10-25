@@ -97,7 +97,14 @@ class ChallengeController extends \BaseController {
 	 */
 	public function destroy($challenge_id)
 	{
-		
+		if(Challenge::delete_challenge($challenge_id))
+		{
+			return Redirect::route('challenges')->with('flash_message','Challenge Deleted Successfully.');
+		}
+		else
+		{
+			dd("Server Problem... Please try again later.");
+		}
 	}
 
 

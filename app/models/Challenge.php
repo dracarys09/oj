@@ -91,4 +91,14 @@ class Challenge extends Eloquent {
 		return $contest;
 	}
 
+	public static function delete_challenge($challenge_id)
+	{
+
+		//dd($challenge_id);
+		$challenge = Challenge::find($challenge_id);
+		if($challenge->delete())
+			return true;
+		return false;
+	}
+
 }
