@@ -102,6 +102,13 @@ Route::get('dashboard/deleteproblem/{problem_id}',array(
 
 ))->before('auth');
 
+Route::post('/dashboard/challenges/add_problem',array(
+
+	'as'	=>	'add_testcase',
+	'uses'=>	'ProblemController@add_testcase'
+
+))->before('auth');
+
 
 
 

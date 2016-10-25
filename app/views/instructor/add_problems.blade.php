@@ -55,7 +55,9 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">code</i>{{ $problem->title}}
           <span style="float:right;">
-            <a href = "{{ route('delete_problem', array('problem_id' => $problem->id)) }}">
+            <a class="waves-effect waves-light btn modal-trigger" href="#testcase" style="float:left;margin-top:3%;">ADD TESTCASE</a>
+
+            <a href = "{{ route('delete_problem', array('problem_id' => $problem->id)) }}" class="black-text">
               <i class="material-icons">delete</i>
             </a>
           </span>
@@ -67,6 +69,34 @@
           <b>Memory Limit : </b><span>{{ $problem->memory_limit }} MB</span>
         </div>
       </li>
+
+      <!-- Add Testcase Modal Structure -->
+      <div id="testcase" class="modal">
+        <div class="modal-content">
+          <h4>Testcase</h4>
+          <!-- Form uploading for input and output testcase files -->
+          <div class="row">
+            <form class="col s12" method="POST" action="{{ route('add_testcase') }}">
+              <div class="row">
+                <div class="input-field col s6">
+                  <b>Input File:</b>
+                  <input id="input_file" name="input_file" type="file" required>
+                </div>
+                <div class="input-field col s6">
+                  <b>Output File:</b>
+                  <input id="output_file" name="output_file" type="file" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="submit" name="{{ $problem->id }}" class="btn col s12" value="SUBMIT">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     @endforeach
 
   </ul>

@@ -50,7 +50,11 @@ class ProblemController extends \BaseController {
 		}
 	}
 
-
+	public static function add_testcase()
+	{
+		//Validate and upload input and output files
+		dd(Input::all());
+	}
 
 	/**
 	 * Display the specified resource.
@@ -98,7 +102,7 @@ class ProblemController extends \BaseController {
 	{
 		$contest_id = Problem::find($problem_id)->challenge_id;
 		if(Problem::delete_problem($problem_id))
-		{	
+		{
 			$contest_name = Challenge::find($contest_id)->name;
 			return Redirect::route('edit_problems', ['contest_name' => $contest_name])->with('flash_message','Problem Deleted Successfully!');
 		}
