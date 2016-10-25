@@ -60,9 +60,9 @@ class Problem extends Eloquent {
 		$problem->description = $data['description'];
 		$problem->title = $data['name'];
 
-		if(isset($data['memory_limit']))
+		if($data['memory_limit'] != "")
 			$mem_limit = $data['memory_limit'];
-		if(isset($data['time_limit']))
+		if($data['time_limit'] != "")
 			$time_limit = $data['time_limit'];
 
 		$problem->memory_limit = $mem_limit;
@@ -71,6 +71,12 @@ class Problem extends Eloquent {
 		if($problem->save())
 			return true;
 		return false;
+	}
+
+	public static function get_problems_for_challenge($challenge_id)
+	{
+		$problems = Problem::where('challenge_id','=',$challenge_id)->get();
+		return $problems;
 	}
 
 

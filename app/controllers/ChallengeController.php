@@ -72,8 +72,8 @@ class ChallengeController extends \BaseController {
 	{
 		$contest = Challenge::get_challenge_by_name($contest_name);
 		$user = Auth::user();
-		$flag = "edit";
-		return View::make('instructor.add_problems')->with('contest',$contest)->with('user',$user)->with('flag',$flag);
+		$problems = Problem::get_problems_for_challenge($contest->id);
+		return View::make('instructor.add_problems')->with('contest',$contest)->with('user',$user)->with('problems',$problems);
 	}
 
 
@@ -97,8 +97,7 @@ class ChallengeController extends \BaseController {
 	 */
 	public function destroy($challenge_id)
 	{
-		//
-		dd($challenge_id);
+		
 	}
 
 

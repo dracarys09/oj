@@ -1,4 +1,4 @@
-@extends('layouts.master',['flag' => $flag])
+@extends('layouts.master')
 
 @section('content')
 
@@ -50,14 +50,19 @@
 
       </div>
     </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">code</i>Problem 1</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">code</i>Problem 2</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
+
+    @foreach($problems as $problem)
+      <li>
+        <div class="collapsible-header"><i class="material-icons">code</i>{{ $problem->title}} </div>
+        <div class="collapsible-body"><p>{{ $problem->description }}</p>
+          <hr>
+          <b>Time Limit : </b><span>{{ $problem->time_limit }} second</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <b>Memory Limit : </b><span>{{ $problem->memory_limit }} MB</span>
+        </div>
+      </li>
+    @endforeach
+
   </ul>
 
   @if(Session::has('flash_message'))

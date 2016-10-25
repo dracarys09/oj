@@ -67,8 +67,8 @@
                 <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges</h5>
               @elseif(Route::currentRouteName() == "settings")
                 <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Settings</h5>
-              @elif(isset($flag))
-                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges > {{ $flag }}</h5>
+              @else
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges > Edit</h5>
               @endif
             </div>
           </nav>
