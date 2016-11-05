@@ -56,9 +56,12 @@ class ChallengeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($contest_name)
 	{
-		//
+		$user = Auth::user();
+		$challenge = Challenge::get_challenge_by_name($contest_name);
+		$problems = Problem::get_problems_for_challenge($challenge->id);
+		return View::make('student.show_contest')->with('user',$user)->with('challenge',$challenge)->with('problems',$problems);
 	}
 
 

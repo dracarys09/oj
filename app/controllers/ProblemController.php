@@ -62,9 +62,16 @@ class ProblemController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($problem_id)
 	{
-		//
+		$user = Auth::user();
+		$problem = Problem::get_problem_by_id($problem_id);
+		return View::make('student.show_problem')->with('user',$user)->with('problem',$problem);
+	}
+
+	public static function evaluate($problem_id)
+	{
+
 	}
 
 

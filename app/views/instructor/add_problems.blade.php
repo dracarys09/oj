@@ -76,7 +76,7 @@
           <h4>Testcase</h4>
           <!-- Form uploading for input and output testcase files -->
           <div class="row">
-            <form class="col s12" method="POST" action="{{ route('add_testcase') }}">
+            <form class="col s12" method="POST" action="{{ route('add_testcase') }}" enctype="multipart/form-data">
               <div class="row">
                 <div class="input-field col s6">
                   <b>Input File:</b>

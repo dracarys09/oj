@@ -59,7 +59,7 @@
   </div><!-- End Create Challenge Modal -->
 
   <div class="row contest-header">
-    <h5>Present &amp; Future Contests</h5>
+    <h5>Future Contests</h5>
   </div>
   <!-- Future Contests -->
   <div class="row">
@@ -89,6 +89,38 @@
   </div>
 
   <hr>
+
+  <div class="row contest-header">
+    <h5>Present Contests</h5>
+  </div>
+  <!-- Present Contests -->
+  <div class="row">
+  @if(count($present_contests) > 0)
+    @foreach($present_contests as $present_contest)
+        <div class="col s6 m6">
+          <div class="card teal darken-1">
+            <div class="card-content white-text">
+              <div class="row">
+                <span class="card-title">{{ $present_contest->name }}</span>
+              </div>
+              <div class="row">
+                <span>{{ $present_contest->start }}</span>
+              </div>
+              <div class="row">
+                <span>{{ $present_contest->end }}</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <a href = "{{ route('edit_problems', array('contest_name' => $present_contest->name)) }}" class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+              <a href = "{{ route('delete_challenge', array('challenge_id' => $present_contest->id)) }}" class="btn-floating btn waves-effect waves-light red"><i class="material-icons">delete</i></a>
+            </div>
+          </div>
+        </div>
+    @endforeach
+  @endif
+  </div>
+
+
 
   <div class="row contest-header">
     <h5>Past Contests</h5>

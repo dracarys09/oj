@@ -74,6 +74,27 @@ Route::post('/dashboard/challenges',array(
 
 ))->before('auth');
 
+Route::get('/dashboard/challenges/show/{contest_name}',array(
+
+	'as'	=>	'show_challenge',
+	'uses'=>	'ChallengeController@show'
+
+))->before('auth');
+
+Route::get('dashboard/challenges/problems/{problem_id}',array(
+
+	'as'	=>	'show_problem',
+	'uses'=>	'ProblemController@show'
+
+))->before('auth');
+
+Route::post('dashboard/challenges/problems/{problem_id}',array(
+
+	'as'	=>	'submit_solution',
+	'uses'=>	'ProblemController@evaluate'
+
+))->before('auth');
+
 Route::post('/dashboard/challenges/add_problem/{contest_id}',array(
 
 	'as'	=>	'add_problem',

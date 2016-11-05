@@ -68,15 +68,29 @@ class Challenge extends Eloquent {
 	public static function get_future_challenges($user_id)
 	{
 		$curr_date = date('Y-m-d h:i:s', time());
-		$future_contests = Challenge::where("start",">",$curr_date)->get();
+		$future_contests = Challenge::where("start",">",$curr_date)->where('user_id','=',$user_id)->get();
 		return $future_contests;
+	}
+
+	public static function get_present_challenges($user_id)
+	{
+		$curr_date = date('Y-m-d h:i:s', time());
+		$present_contests = Challenge::where("start","<=",$curr_date)->where("end",">",$curr_date)->where('user_id','=',$user_id)->get();
+		return $present_contests;
 	}
 
 	public static function get_past_challenges($user_id)
 	{
 		$curr_date = $date = date('Y-m-d h:i:s', time());
-		$past_contests = Challenge::where("end","<",$curr_date)->get();
+		$past_contests = Challenge::where("end","<",$curr_date)->where('user_id','=',$user_id)->get();
 		return $past_contests;
+	}
+
+	public static function get_all_present_challenges()
+	{
+		$curr_date = $date = date('Y-m-d h:i:s', time());
+		$present_contests = Challenge::where("start","<=",$curr_date)->where("end",">=",$curr_date)->get();
+		return $present_contests;
 	}
 
 	public static function get_challenge_by_name($challenge_name)
@@ -99,6 +113,20 @@ class Challenge extends Eloquent {
 		if($challenge->delete())
 			return true;
 		return false;
+	}
+
+	public static function get_all_future_challenges()
+	{
+		$curr_date = date('Y-m-d h:i:s', time());
+		$future_contests = Challenge::where("start",">",$curr_date)->get();
+		return $future_contests;
+	}
+
+	public static function get_all_past_challenges()
+	{
+			$curr_date = $date = date('Y-m-d h:i:s', time());
+			$past_contests = Challenge::where("end","<",$curr_date)->get();
+			return $past_contests;
 	}
 
 }

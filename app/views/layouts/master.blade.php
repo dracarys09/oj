@@ -17,6 +17,9 @@
     <!-- Animate CSS -->
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('assets/css/animate.min.css') }}" media="screen,projection">
 
+    <!--DataTables-->
+    {{ HTML::style('assets/datatables/DataTables-1.10.2/media/css/jquery.dataTables.css') }}
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -28,6 +31,9 @@
     <script type="text/javascript" src="{{ URL::asset('assets/js/wow.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ URL::asset('assets/js/init.js') }}"></script>
+    <!-- Datatable -->
+    {{ HTML::script('assets/datatables/DataTables-1.10.2/media/js/jquery.dataTables.js') }}
+
 
 
   </head>
@@ -49,7 +55,7 @@
           </div>
 
           <div class="dashboard-bottom-options">
-            <li><a  href="#!" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2" style="margin-right:20%;">settings</i>Settings</a></li>
+            <li><a  href="#" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2" style="margin-right:20%;">settings</i>Settings</a></li>
             <li><a  href="{{ URL::route('logout') }}" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2"  style="margin-right:20%;">flight</i>Logout</a></li>
           </div>
 
@@ -60,8 +66,11 @@
       <div class="col s9" style="margin-left:-3%;">
         <div class="navbar-fixed">
           <nav class="dashboard-nav white">
-            <div class="nav-wrapper">
+            <!-- Navigation Logic -->
+            <!-- <div class="nav-wrapper">
               @if(Route::currentRouteName() == "instructor_dashboard")
+                <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard</h5>
+              @elif(Route::currentRouteName() == "student_dashboard")
                 <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard</h5>
               @elseif(Route::currentRouteName() == "challenges")
                 <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges</h5>
@@ -70,7 +79,7 @@
               @else
                 <h5 class="grey-text text-darken-2 dashboard-nav-heading">Dashboard > Challenges > Edit</h5>
               @endif
-            </div>
+            </div> -->
           </nav>
         </div>
       </div>
