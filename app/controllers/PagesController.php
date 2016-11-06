@@ -33,18 +33,21 @@ class PagesController extends \BaseController {
 
 	public function student_dashboard()
 	{
-		$user = Auth::user();
-		$student = Student::get_student_by_user_id($user->id);
+		//$user = Auth::user();
+		//$student = Student::get_student_by_user_id($user->id);
 
-		return View::make('student.dashboard')->with('user',$user)->with('student',$student);
+		//return View::make('student.dashboard')->with('user',$user)->with('student',$student);
+
+		return Redirect::route('challenges');
 	}
 
 	public function instructor_dashboard()
 	{
 		//dd("instructor_dashboard");
-		$user = Auth::user();
-		$instructor = Instructor::get_instructor_by_user_id($user->id);
-		return View::make('instructor.dashboard')->with('user',$user)->with('instructor',$instructor);
+		//$user = Auth::user();
+		//$instructor = Instructor::get_instructor_by_user_id($user->id);
+		//return View::make('instructor.dashboard')->with('user',$user)->with('instructor',$instructor);
+		return Redirect::route('challenges');
 	}
 
 	public function challenges()

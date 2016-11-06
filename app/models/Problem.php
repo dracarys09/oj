@@ -93,5 +93,11 @@ class Problem extends Eloquent {
 		return false;
 	}
 
+	public static function get_challenge_id($problem_id)
+	{
+		$problem = Problem::find($problem_id);
+		return $problem->challenge_id;
+	}
+
 
 }

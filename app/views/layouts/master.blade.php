@@ -50,7 +50,7 @@
           <li class="dashboard-logo"><a id="logo-container" href="{{ URL::route('dashboard') }}" class="brand-logo orange-text">C{ }DE</a></li>
 
           <div class="dashboard-top-options">
-            <li><a href="{{ URL::route('dashboard') }}" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2" style="margin-right:20%;">person</i>Home</a></li>
+            <!-- <li><a href="{{ URL::route('dashboard') }}" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2" style="margin-right:20%;">person</i>Home</a></li> -->
             <li><a href="{{ URL::route('challenges') }}" class="grey-text text-lighten-1"><i class="medium material-icons teal-text text-darken-2" style="margin-right:20%;">code</i>Challenges</a></li>
           </div>
 

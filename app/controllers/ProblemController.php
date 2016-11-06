@@ -50,10 +50,26 @@ class ProblemController extends \BaseController {
 		}
 	}
 
-	public static function add_testcase()
+	public static function add_testcase($problem_id)
 	{
 		//Validate and upload input and output files
-		dd(Input::all());
+		//dd(Input::all());
+		if(isValid(Input::all()))
+		{
+			if(Testcase::store(Input::all(), $problem_id))
+			{
+				$contest_name = Challenge::get_contest_name($problem_id);
+				return Redirect::route('edit_problems',array('contest_name' => $contest_name))->with('flash_message',"Testcase added Successfully!");
+			}
+			else
+			{
+				dd("Server problem... Please try again later!");
+			}
+		}
+		else
+		{
+			return Redirect::back()->withInput()->with('flash_message',Testcase::$errors."Please try again...");
+		}
 	}
 
 	/**
