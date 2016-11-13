@@ -2,25 +2,17 @@
 
 @section('homepage')
 
-  <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <!-- Modal Triggers -->
-    <li><a href="#student-login-modal" class="modal-trigger">Student</a></li>
-    <li><a href="#instructor-login-modal" class="modal-trigger">Instructor</a></li>
-  </ul>
   <nav class="teal darken-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo orange-text">C{ }DE</a>
-      <ul class="right hide-on-med-and-down">
-        <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo orange-text">C{ }DE</a>
+      <a href="#login-modal" class="right modal-trigger">Login</a>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 
     <!-- Student Login Modal Structure -->
-    <div id="student-login-modal" class="modal login-modal">
+    <div id="login-modal" class="modal login-modal">
       <div class="modal-content">
-        <h4>Student Login</h4>
+        <h4>Login Below</h4>
         <div class="row">
           <form class="col s6" method = "POST" action = "{{ URL::route('login') }}">
             <div class="row">
@@ -41,31 +33,6 @@
       </div>
     </div>
 
-
-
-    <!-- Instructor Login Modal Structure -->
-    <div id="instructor-login-modal" class="modal login-modal">
-      <div class="modal-content">
-        <h4>Instructor Login</h4>
-        <div class="row">
-          <form class="col s6" method = "POST" action = "{{ URL::route('login') }}">
-            <div class="row">
-              <div class="input-field col s12">
-                <span>Email:</span>
-                <input id="email" name="email" type="email" class="validate" placeholder="someone@example.com" required>
-              </div>
-              <div class="input-field col s12">
-                <span>Password:</span>
-                <input id="pass" name="password" type="password" placeholder="Your password" required>
-              </div>
-              <div class="input-field col s12">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
   </nav>
 

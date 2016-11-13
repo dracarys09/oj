@@ -136,4 +136,10 @@ class Challenge extends Eloquent {
 		return $challenge->name;
 	}
 
+	public static function get_challenge_id_for_problem($problem_id)
+	{
+		$challenge_id = Problem::get_challenge_id($problem_id);
+		return $challenge_id;
+	}
+
 }

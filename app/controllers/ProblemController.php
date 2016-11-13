@@ -54,9 +54,10 @@ class ProblemController extends \BaseController {
 	{
 		//Validate and upload input and output files
 		//dd(Input::all());
-		if(isValid(Input::all()))
+		if(Testcase::isValid(Input::all()))
 		{
-			if(Testcase::store(Input::all(), $problem_id))
+			$challenge_id = Challenge::get_challenge_id_for_problem($problem_id);
+			if(Testcase::store(Input::all(), $problem_id, $challenge_id))
 			{
 				$contest_name = Challenge::get_contest_name($problem_id);
 				return Redirect::route('edit_problems',array('contest_name' => $contest_name))->with('flash_message',"Testcase added Successfully!");

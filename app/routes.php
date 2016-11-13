@@ -123,7 +123,7 @@ Route::get('dashboard/deleteproblem/{problem_id}',array(
 
 ))->before('auth');
 
-Route::post('/dashboard/challenges/add_problem/{problem_id}',array(
+Route::post('/dashboard/challenges/edit_problems/{problem_id}',array(
 
 	'as'	=>	'add_testcase',
 	'uses'=>	'ProblemController@add_testcase'
