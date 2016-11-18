@@ -130,7 +130,19 @@ Route::post('/dashboard/challenges/edit_problems/{problem_id}',array(
 
 ))->before('auth');
 
+Route::get('/dashboard/status/{challenge_id}/{user_id}/{problem_id}',array(
 
+	'as'	=>	'show_results',
+	'uses'=>	'PagesController@show_results'
+
+))->before('auth');
+
+Route::get('/dashboard/view_solution/{solution_id}',array(
+
+	'as'	=>	'view_solution',
+	'uess'=>	'PagesController@show_solution'
+
+))->before('auth');
 
 
 

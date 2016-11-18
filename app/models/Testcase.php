@@ -50,37 +50,7 @@ class Testcase extends Eloquent {
 
 	public static function store($data, $problem_id, $challenge_id)
 	{
-		/*
-		userdata/instructor/challenge_id/problem_id/in.txt
-		userdata/instructor/challenge_id/problem_id/out.txt
-		*/
-
-		if(Input::hasFile('input_file') && Input::hasFile('output_file'))
-		{
-			$input_path = "userdata/instructor/".$challenge_id."/".$problem_id."/in"."/";
-			$output_path = "userdata/instructor/".$challenge_id."/".$problem_id."/out"."/";
-
-			$directory = "userdata/instructor/".$challenge_id."/".$problem_id."/in"."/";
-			$files = glob($directory . '*.txt');
-
-
-			if ( count($files) == 0 )
-			{
-				Input::file('input_file')->move($input_path,"0.txt");
-				Input::file('output_file')->move($output_path,"0.txt");
-			}
-			else
-			{
-				$filecount = count( $files );
-
-				Input::file('input_file')->move($input_path,$filecount.".txt");
-				Input::file('output_file')->move($output_path,$filecount.".txt");
-			}
-
 			return true;
-		}
-
-
 	}
 
 

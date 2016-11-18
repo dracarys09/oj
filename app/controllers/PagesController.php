@@ -71,4 +71,18 @@ class PagesController extends \BaseController {
 		}
 	}
 
+	public function show_results($challenge_id, $user_id, $problem_id)
+	{
+		$solutions = Solution::get_all_submitted_solutions($user_id, $problem_id);
+		$user = Auth::user();
+		$problem = Problem::get_problem_by_id($problem_id);
+		return View::make('student.results')->with('user',$user)->with('solutions',$solutions)->with('problem',$problem);
+	}
+
+	public function show_solution($solution_id)
+	{
+		$solution = Solution::get_solution_by_id($solution_id);
+		$path = $solution->submitted_file_path;
+	}
+
 }
