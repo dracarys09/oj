@@ -83,6 +83,9 @@ class PagesController extends \BaseController {
 	{
 		$solution = Solution::get_solution_by_id($solution_id);
 		$path = $solution->submitted_file_path;
+		$user = Auth::user();
+
+		return View::make('student.show_solution')->with('user',$user)->with('path',$path);
 	}
 
 }

@@ -20,6 +20,12 @@
     <!--DataTables-->
     {{ HTML::style('assets/datatables/DataTables-1.10.2/media/css/jquery.dataTables.css') }}
 
+    <!-- Syntax Highlighter -->
+    <!-- {{ HTML::style('assets/syntaxhighlighter_3.0.83/styles/shCore.css') }} -->
+    <!-- {{ HTML::style('assets/syntaxhighlighter_3.0.83/styles/shThemeDefault.css') }} -->
+    {{ HTML::style('assets/google-code-prettify/prettify.css') }}
+
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -33,7 +39,9 @@
     <script src="{{ URL::asset('assets/js/init.js') }}"></script>
     <!-- Datatable -->
     {{ HTML::script('assets/datatables/DataTables-1.10.2/media/js/jquery.dataTables.js') }}
-
+    <!-- Syntax Highlighter -->
+    <!-- {{ HTML::script('assets/syntaxhighlighter_3.0.83/src/shCore.js') }} -->
+    {{ HTML::script('assets/google-code-prettify/prettify.js') }}
 
 
   </head>
