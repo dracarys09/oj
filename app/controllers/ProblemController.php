@@ -100,7 +100,8 @@ class ProblemController extends \BaseController {
 	{
 		$user = Auth::user();
 		$problem = Problem::get_problem_by_id($problem_id);
-		return View::make('student.show_problem')->with('user',$user)->with('problem',$problem);
+		$challenge_id = Challenge::get_challenge_id_for_problem($problem_id);
+		return View::make('student.show_problem')->with('challenge_id',$challenge_id)->with('user',$user)->with('problem',$problem);
 	}
 
 	public static function evaluate($problem_id)
