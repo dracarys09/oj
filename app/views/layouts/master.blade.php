@@ -83,19 +83,19 @@
               @elseif(Route::currentRouteName() == "challenges")
                 <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges</a>
               @elseif(Route::currentRouteName() == "show_challenge")
-                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges >></a>
+                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges ></a>
                 <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_challenge', array('contest_name' => $challenge->name)) }}">{{ $challenge->name }}</a>
               @elseif(Route::currentRouteName() == "show_problem")
-                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges >></a>
-                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_challenge', array('contest_name' => $challenge->name)) }}">{{ $challenge->name }} >> </a>
+                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges ></a>
+                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_challenge', array('contest_name' => $challenge->name)) }}">{{ $challenge->name }} > </a>
                 <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_problem', array('problem_id' => $problem->id)) }}">{{ $problem->title }}</a>
               @elseif(Route::currentRouteName() == "show_results")
-                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges >></a>
-                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_challenge', array('contest_name' => $challenge->name)) }}">{{ $challenge->name }} >></a>
-                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_problem', array('problem_id' => $problem->id)) }}">{{ $problem->title }} >> </a>
+                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges ></a>
+                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_challenge', array('contest_name' => $challenge->name)) }}">{{ $challenge->name }} ></a>
+                <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_problem', array('problem_id' => $problem->id)) }}">{{ $problem->title }} > </a>
                 <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('show_results', array('challenge_id' => $challenge->id, 'user_id' => $user->id, 'problem_id' => $problem->id)) }}">Submissions</a>
               @elseif(Route::currentRouteName() == "edit_problems")
-                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges >></a>
+                <a class="teal-text dashboard-nav-heading" href="{{ route('challenges') }}">Challenges ></a>
                 <a style="margin-left:-2%;" class="teal-text dashboard-nav-heading" href="{{ route('edit_problems', array('contest_name' => $contest->name)) }}">{{ $contest->name }}</a>
               @endif
             </div>

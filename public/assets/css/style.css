@@ -57,8 +57,8 @@
   background-color: #1c262f;
 }
 
-.dashboard-bottom-options{
-  margin-top: 70%;
+.modal {
+  overflow-y: hidden;
 }
 
 .dashboard-top-options li{
