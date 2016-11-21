@@ -55,7 +55,7 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">code</i>{{ $problem->title}}
           <span style="float:right;">
-            <a class="waves-effect waves-light btn modal-trigger" href="#testcase" style="float:left;margin-top:3%;">ADD TESTCASE</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#testcase{{$problem->id}}" style="float:left;margin-top:3%;">ADD TESTCASE</a>
 
             <a href = "{{ route('delete_problem', array('problem_id' => $problem->id)) }}" class="black-text">
               <i class="material-icons">delete</i>
@@ -71,7 +71,7 @@
       </li>
 
       <!-- Add Testcase Modal Structure -->
-      <div id="testcase" class="modal">
+      <div id="testcase{{$problem->id}}" class="modal">
         <div class="modal-content">
           <h4>Testcase</h4>
           <!-- Form uploading for input and output testcase files -->

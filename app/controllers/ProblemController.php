@@ -56,6 +56,7 @@ class ProblemController extends \BaseController {
 		userdata/instructor/challenge_id/problem_id/in.txt
 		userdata/instructor/challenge_id/problem_id/out.txt
 		*/
+		// dd($problem_id);
 
 		if(Input::hasFile('input_file') && Input::hasFile('output_file'))
 		{
@@ -100,8 +101,8 @@ class ProblemController extends \BaseController {
 	{
 		$user = Auth::user();
 		$problem = Problem::get_problem_by_id($problem_id);
-		$challenge_id = Challenge::get_challenge_id_for_problem($problem_id);
-		return View::make('student.show_problem')->with('challenge_id',$challenge_id)->with('user',$user)->with('problem',$problem);
+		$challenge = Challenge::get_challenge_for_problem($problem_id);
+		return View::make('student.show_problem')->with('challenge',$challenge)->with('user',$user)->with('problem',$problem);
 	}
 
 	public static function evaluate($problem_id)

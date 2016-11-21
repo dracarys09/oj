@@ -186,18 +186,18 @@
         <div class="col l6 s12">
           <h5 class="white-text">About Us</h5>
           <p class="grey-text text-lighten-4">
-            <a class="orange-text text-lighten-3" href="#"> Abhijeet </a>
+            <a class="orange-text text-lighten-3" target="_blank" href="https://github.com/dracarys09"> Abhijeet </a>
              is a student of
-             <a class="orange-text text-lighten-3" href="http://www.iitb.ac.in/"> IIT Bombay </a>
+             <a class="orange-text text-lighten-3" target="_blank" href="http://www.iitb.ac.in/"> IIT Bombay </a>
              working on this project. Any amount of help would support this project and is greatly appreciated.
-             Source code is hosted on <a href="https://github.com/dracarys09/oj" class="orange-text text-lighten-3">Github</a>.
+             Source code is hosted on <a target="_blank" href="https://github.com/dracarys09/oj" class="orange-text text-lighten-3">Github</a>.
           </p>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made with love using <a class="orange-text text-lighten-3" href="http://materializecss.com"> Materialize </a> &amp; <a class="orange-text text-lighten-3" href="https://laravel.com/">Laravel</a>
+      Made with love using <a class="orange-text text-lighten-3" target="_blank" href="http://materializecss.com"> Materialize </a> &amp; <a class="orange-text text-lighten-3" href="https://laravel.com/">Laravel</a>
       </div>
     </div>
   </footer>

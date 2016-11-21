@@ -28,7 +28,7 @@
     <div class="row contest-header">
       <h5>Present Contests</h5>
     </div>
-    <table id="challenges-table" class="bordered highlight">
+    <table id="present-challenges-table" class="bordered highlight">
        <thead>
          <tr>
              <th data-field="id">Contest</th>
@@ -42,7 +42,7 @@
          @foreach($present_contests as $present_contest)
             <tr>
               <td>
-                <a href = "{{ route('show_challenge', array('contest_name' => $present_contest->name)) }}">{{ $present_contest->name }}</a>
+                <a class="teal-text text-darken-1" href = "{{ route('show_challenge', array('contest_name' => $present_contest->name)) }}">{{ $present_contest->name }}</a>
               </td>
               <td>{{ $present_contest->start }}</td>
               <td>{{ $present_contest->end }}</td>
@@ -60,7 +60,7 @@
       <h5>Future Contests</h5>
     </div>
 
-    <table id="challenges-table" class="bordered highlight">
+    <table id="future-challenges-table" class="bordered highlight">
        <thead>
          <tr>
              <th data-field="id">Contest</th>
@@ -74,7 +74,7 @@
          @foreach($future_contests as $future_contest)
             <tr>
               <td>
-                <a href="#">{{ $future_contest->name }}</a>
+                <a class="teal-text text-darken-1" href="#">{{ $future_contest->name }}</a>
               </td>
               <td>{{ $future_contest->start }}</td>
               <td>{{ $future_contest->end }}</td>
@@ -90,7 +90,7 @@
     <div class="row contest-header">
       <h5>Past Contests</h5>
     </div>
-    <table id="challenges-table" class="bordered highlight">
+    <table id="past-challenges-table" class="bordered highlight">
        <thead>
          <tr>
              <th data-field="id">Contest</th>
@@ -104,7 +104,7 @@
          @foreach($past_contests as $past_contest)
             <tr>
               <td>
-                <a href = "{{ route('show_challenge', array('contest_name' => $past_contest->name)) }}">{{ $past_contest->name }}</a>
+                <a class="teal-text text-darken-1" href = "{{ route('show_challenge', array('contest_name' => $past_contest->name)) }}">{{ $past_contest->name }}</a>
               </td>
               <td>{{ $past_contest->start }}</td>
               <td>{{ $past_contest->end }}</td>
@@ -129,7 +129,9 @@
       $('.dismiss').parent().parent().parent().parent().css("display","none");
     }
 
-    $('#challenges-table').dataTable();
+    $('#present-challenges-table').dataTable();
+    $('#past-challenges-table').dataTable();
+    $('#future-challenges-table').dataTable();
 
   });
 

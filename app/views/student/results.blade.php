@@ -27,7 +27,7 @@
 
     <!-- All Submissions -->
     <div class="row contest-header">
-      <h5>{{ $user->name }}'s Submissions for <a href="{{ URL::route('show_problem',array('problem_id' => $problem->id)) }}">{{ $problem->title }}</a></h5>
+      <h5>{{ $user->name }}'s Submissions for <a class="teal-text" href="{{ URL::route('show_problem',array('problem_id' => $problem->id)) }}">{{ $problem->title }}</a></h5>
     </div>
     <table id="results-table" class="bordered highlight">
        <thead>
@@ -77,7 +77,7 @@
       $(this).attr('style','color:green');
     });
     $('.compilation-error').each(function() {
-      $(this).attr('style','color:yellow');
+      $(this).attr('style','color:#b2b200');
     });
 
   });

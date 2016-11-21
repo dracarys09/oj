@@ -5,7 +5,7 @@
   <div class="container" style="margin-left:25%;">
 
     <h4>{{ $problem->title }}</h4>
-    <a href="{{ route('show_results', array('challenge_id' => $challenge_id, 'user_id' => $user->id, 'problem_id' => $problem->id)) }}">My Submissions</a>
+    <a href="{{ route('show_results', array('challenge_id' => $challenge->id, 'user_id' => $user->id, 'problem_id' => $problem->id)) }}">My Submissions</a>
     <hr>
 
     {{ $problem->description }}

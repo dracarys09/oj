@@ -76,7 +76,8 @@ class PagesController extends \BaseController {
 		$solutions = Solution::get_all_submitted_solutions($user_id, $problem_id);
 		$user = Auth::user();
 		$problem = Problem::get_problem_by_id($problem_id);
-		return View::make('student.results')->with('user',$user)->with('solutions',$solutions)->with('problem',$problem);
+		$challenge = Challenge::get_challenge_by_id($challenge_id);
+		return View::make('student.results')->with('challenge',$challenge)->with('user',$user)->with('solutions',$solutions)->with('problem',$problem);
 	}
 
 	public function show_solution($solution_id)
