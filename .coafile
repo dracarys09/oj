@@ -1,0 +1,4 @@
+[Default]
+bears = LineLengthBear
+files = *.php, app/routes.php
+use_spaces = False
